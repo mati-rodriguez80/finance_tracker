@@ -1,0 +1,14 @@
+<div class="flash-results">
+  <%= render 'layouts/messages' %>
+</div>
+<% if @friend %>
+  <div class="card card-header results-block">
+    <strong>Name: </strong><%= @friend %>
+    <strong>Email: </strong><%= @friend %>
+    <strong>Price: </strong><%= @friend %>
+    <%= link_to 'Follow friend?', 
+        '#', 
+        class: "btn btn-success", 
+        method: :post %>
+  </div>
+<% end %>
