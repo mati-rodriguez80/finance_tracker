@@ -28,4 +28,41 @@ class User < ApplicationRecord
     "Anonymous"
   end
 
+  # Search User/Friends methods
+
+  def self.matches(field_name, param)
+    # This returns an ActiveRecord::Relation in the console
+    where("#{field_name} like ?", "%#{param}%")
+  end
+
+  def self.first_name_matches(param)
+    matches("first_name", param)
+  end
+
+  def self.last_name_matches(param)
+    matches("last_name", param)
+  end
+
+  def self.email_matches(param)
+    matches("email", param)
+  end
+
+  def self.search(param)
+    param.strip!
+    # Concatenating this methods returns an array of user's objects
+    to_send_back = (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
+    return nil unless !to_send_back.empty?
+    to_send_back
+  end
+
+  # Method that runs through friends and exclude the current user if present
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
+  end
+
+  # It checks if the id of the searched user is already in the current user's friends
+  def not_friends_with?(id_of_friend)
+    !self.friends.where(id: id_of_friend).exists?
+  end
+
 end
