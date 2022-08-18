@@ -9,6 +9,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  # Methods to check if the user can track a new stock
+
   def stock_already_tracked?(ticker_symbol)
     stock = Stock.check_db(ticker_symbol)
     return false unless stock
@@ -23,8 +25,9 @@ class User < ApplicationRecord
     under_stock_limit? && !stock_already_tracked?(ticker_symbol)
   end
   
+  # Method that returns the full name of a user or Anonymous if they choose not to have any name
   def full_name
-    return "#{first_name} #{last_name}" if first_name || last_name
+    return "#{first_name} #{last_name}" if !first_name.empty? || !last_name.empty?
     "Anonymous"
   end
 

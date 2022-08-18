@@ -19,6 +19,10 @@
 <% if !@tracked_stocks.empty? %>
   <%= render 'stocks/list' %>
 <% else %>
-  <p class="lead">You are currently not tracking any stocks</p>
-  <em>Do not wait to start following them! To do that, please look up for a Stock Ticker Symbol in the search form above</em>
+  <div class="row">
+    <div class="col-9">
+      <p class="lead">You are currently not tracking any stocks</p>
+      <em>Do not wait to start following them! To do that, please look up for a <strong>Stock Ticker Symbol</strong> in the search form above.</em>
+    </div>
+  </div>
 <% end %>

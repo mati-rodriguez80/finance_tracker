@@ -18,4 +18,15 @@
 </div>
 <% if !@followed_friends.empty? %>
   <%= render 'friends/list' %>
+<% else %>
+  <div class="row">
+    <div class="col-9">
+      <p class="lead">You are not following friends yet!</p>
+      <em>
+        Friends can help you get new investing ideas since you will be able to see which stocks they are tracking.
+        Please enter a user's name or email in the search form. You can also look at all the users that are using
+        the application if you enter just an <strong>@</strong> symbol.
+      </em>
+    </div>
+  </div>
 <% end %>
