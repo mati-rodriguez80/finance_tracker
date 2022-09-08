@@ -25,6 +25,23 @@ class User < ApplicationRecord
     under_stock_limit? && !stock_already_tracked?(ticker_symbol)
   end
   
+  # Connect to the IEX Finance API, go through each of the user's stocks, and update the stock's prices
+  def update_stock_prices
+    client = IEX::Api::Client.new(
+      publishable_token: Rails.application.credentials.iex_client[:sandbox_api_key], 
+      endpoint: 'https://sandbox.iexapis.com/v1'
+    )
+    begin
+      stocks.each do |stock|
+        stock.last_price = client.price(stock.ticker)
+        stock.save
+      end
+    rescue => exception
+      flash[:alert] = "The server is not responding correctly for the time being. Please try again later."
+      redirect_to root_path
+    end
+  end
+
   # Method that returns the full name of a user or Anonymous if they choose not to have any name
   def full_name
     return "#{first_name} #{last_name}" if !first_name.empty? || !last_name.empty?

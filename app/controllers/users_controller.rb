@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 
   def my_portfolio
     @user = current_user
+    if !current_user.stocks.empty?
+      current_user.update_stock_prices
+    end
     @tracked_stocks = current_user.stocks
   end
 
@@ -11,6 +14,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if !@user.stocks.empty?
+      @user.update_stock_prices
+    end
     @tracked_stocks = @user.stocks
   end
 

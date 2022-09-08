@@ -29,3 +29,40 @@
   margin-top: 3.5%;
   padding-right: 5px;
 }
+
+/* Home Page Classes */
+
+.main-img-1 {
+  background-image: asset-url('markus-winkler-IrRbSND5EUc-unsplash.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+}
+
+.main-img-2 {
+  background-image: asset-url('maxim-hopman-fiXLQXAhCfk-unsplash.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+}
+
+.main-img-3 {
+  background-image: asset-url('scott-graham-5fNmWej4tAA-unsplash.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+}
+
+/* Sticky Footer Classes */
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}

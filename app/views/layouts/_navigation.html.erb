@@ -8,9 +8,46 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item <%= 'active' if request.path == my_portfolio_path %>">
-            <%= link_to 'My Portfolio', my_portfolio_path, class: "nav-link" %>
-          </li>
+          <% if request.path == root_path %>
+            <li class="nav-item <%= 'active' if request.path == my_portfolio_path %>">
+              <!-- Button trigger modal -->
+              <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">My Portfolio</a>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Loading Your Portfolio</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      We are going to update your stock's prices. This could take up to a few seconds. 
+                      Same thing is going to happen when viewing a User/Friend's profile.
+                    </div>
+                    <div class="modal-footer">
+                      <div class="collapse width" id="collapseWidthExample">
+                        <div class="spinner-border text-info" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                      </div>
+                      <%= link_to(my_portfolio_path) do %>
+                        <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                          Go to My Portfolio
+                        </button>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item <%= 'active' if request.path == my_portfolio_path %>">
+              <%= link_to 'My Portfolio', my_portfolio_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item <%= 'active' if request.path == my_friends_path %>">
             <%= link_to 'My Friends', my_friends_path, class: "nav-link" %>
           </li>

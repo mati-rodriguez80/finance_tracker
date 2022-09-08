@@ -1,7 +1,6 @@
-<h1><%= t('.sign_in') %></h1>
-
 <div class="row">
-  <div class="col-9">
+  <div class="col-6">
+    <h1><%= t('.sign_in') %></h1>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
         <%= f.label :email %>
@@ -28,5 +27,15 @@
     <% end %>
 
     <%= render 'devise/shared/links' %>
+  </div>
+  <div class="col-6 text-center">
+    <h3 class="text-primary">Welcome to your next level as an Stock Market Expert!</h3>
+    <div class="card border-light mb-3 mx-auto" style="width: 18rem;">
+      <%= image_tag "markus-winkler-IrRbSND5EUc-unsplash.jpg", alt: "Finance image", class: "card-img-top" %>
+      <div class="card-body text-dark">
+        <strong>Improve Your Finance with Finance Tracker!</strong>
+        <p class="card-text">Keep track of the Stock Market and make the right decisions.</p>
+      </div>
+    </div>
   </div>
 </div>
