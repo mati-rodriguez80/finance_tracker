@@ -7,7 +7,6 @@ This web application is built while doing "The Complete Ruby on Rails Developer 
 * Working with an external API to get stock quote information
 * Working with sensitive credentials (such as API keys) within the app
 * Faster development of resources using generators
-* Bootstrap installation and usage for front-end styling without the use of the bootstrap gem
 
 ## Requirements for this app
 
@@ -18,7 +17,15 @@ This web application is built while doing "The Complete Ruby on Rails Developer 
 * Users can view the portfolio of stocks their friends are tracking for investing ideas
 * The app must be mobile friendly, so styling has to be responsive
 
-## General Information
+## Clone Repository
+
+If you are going to clone this repository, remember to execute these steps before you run the app locally:
+
+* yarn add bootstrap@4.6.1 jquery popper.js
+* bundle install
+* rails db:migrate
+
+### General Information
 
 * Ruby version: 2.7.5
 * Rails version: 6.1.5.1
