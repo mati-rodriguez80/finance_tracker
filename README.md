@@ -1,21 +1,14 @@
-# STOCK TRACKER SOCIAL MEDIA APP
+# Stock Tracker Social Media App
 
-This web application is built while doing "The Complete Ruby on Rails Developer Course" on Udemy. The goal with this app is to learn some of the next topics which are different from previous apps:
+This web application was built while doing "The Complete Ruby on Rails Developer Course" on Udemy. Users can track stocks (up to 10), and their profile page will display all the stocks they are tracking with their current price. Users can search for stocks, add and remove them from their portfolio, look for friends or other users of the app by name or email, and view the portfolio of stocks their friends are tracking for investing ideas.
 
-* Use (and customization) of devise gem for authentication
+The goal with this app was to learn some of the next topics which are different from previous apps:
+
+* Use (and customization) of devise gem for authentication so users can sign-up, edit their profile, login/logout
 * Ajax for form submission, in-depth
-* Working with an external API to get stock quote information
-* Working with sensitive credentials (such as API keys) within the app
+* Work with IEX Cloud API to get stock quote information
+* Work with sensitive credentials (such as API keys) within the app
 * Faster development of resources using generators
-
-## Requirements for this app
-
-* Authentication system, users can sign-up, edit their profile, login/logout
-* Users can track stocks, up to 10 per user. Their profile page will display all the stocks they are tracking with their current price
-* Users can search for stocks, add and remove stocks from their portfolio
-* Users can look for friends, or other users of the app, by name or email
-* Users can view the portfolio of stocks their friends are tracking for investing ideas
-* The app must be mobile friendly, so styling has to be responsive
 
 ## Clone Repository
 
